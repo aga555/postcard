@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<h2> Update css Variable with <span class='h1'> JS </span> </h2>
+<h2> Update css Variable with <span class='h1'> JS </span></h2>
 <div class="controls">
-    <label for="spacing" >Spacing:</label>
-    <input type="range" id="spacing" min="10" max="200" value="10"  data-sizing="px">
+    <label for="spacing">Spacing:</label>
+    <input type="range" id="spacing" min="10" max="200" value="10" data-sizing="px">
 
-    <label for="blur" > Blur :</label>
-    <input type="range" id="blur" min="0" max="25" value="10" data-sizing="px" >
+    <label for="blur"> Blur :</label>
+    <input type="range" id="blur" min="0" max="25" value="10" data-sizing="px">
 
     <label for="base"> Base color: </label>
     <input type="color" id="base" value="#ffc600">
@@ -21,35 +21,42 @@
 </body>
 </html>
 <style>
-:root{
-    --base:#ffc600;
-    --spacing:10px;
-    --blur:10px;
-}
-img {
-    padding: var(--spacing);
-    background: var(--base);
-    filter: blur(var(--blur));
-}
-.h1 {
-    color: var(--base);
-}
-    body{
+    :root {
+        --base: #ffc600;
+        --spacing: 10px;
+        --blur: 10px;
+    }
+
+    img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+    }
+
+    .h1 {
+        color: var(--base);
+    }
+
+    body {
         background: #193549;
         color: white;
-        font-family: "Book Antiqua",sans-serif;
+        font-family: "Book Antiqua", sans-serif;
         font-weight: 100;
         font-size: 50px;
     }
-    .controls{
+
+    .controls {
         margin-bottom: 50px;
     }
 </style>
 <script>
-    const inputs =document.querySelectorAll('.controls input');
-    function handleUpadte(){
-        console.log(this.value);
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpadte() {
+        const suffix = this.dataset.sizing || '';
+        console.log(this.id);
     }
-    inputs.forEach(input=>input.addEventListener('change',handleUpadte));
-    inputs.forEach(input=>input.addEventListener('mousemove',handleUpadte))
+
+    inputs.forEach(input => input.addEventListener('change', handleUpadte));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpadte))
 </script>
